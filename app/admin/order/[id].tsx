@@ -1,12 +1,10 @@
-import { useRouter } from 'next/navigation';
+import { useParams } from 'next/navigation';
 
 export default function OrderDetails() {
-  const router = useRouter();
-  const { id } = router.query;
+  const { id } = useParams(); // Correctly retrieve route parameters
 
-  
   const order = {
-    id: id || 'N/A', 
+    id: id || 'N/A',
     customer: 'Nanak',
     items: [
       { name: 'Product 1', quantity: 2, price: '$50.00' },
@@ -38,8 +36,8 @@ export default function OrderDetails() {
       <div className="mb-4">
         <strong>Total Amount:</strong> {order.totalAmount}
       </div>
-      <button 
-        onClick={() => router.push('/checkout')} 
+      <button
+        onClick={() => router.push('/checkout')}
         className="mt-4 bg-green-500 text-white py-2 px-4 rounded"
       >
         Proceed to Checkout
