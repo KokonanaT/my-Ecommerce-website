@@ -1,5 +1,7 @@
-"use client"
+"use client";
+import React from 'react';
 import { useCartContext } from '../context/CartContextProvider';
+import { CartItem } from '../types/product'; 
 
 export default function Cart() {
   const { cartItems, removeCartItem, updateCartItem } = useCartContext();
@@ -11,7 +13,7 @@ export default function Cart() {
         <p>Your cart is empty.</p>
       ) : (
         <div>
-          {cartItems.map((item) => (
+          {cartItems.map((item: CartItem) => (
             <div key={item.id} className="mb-4 border-b pb-4">
               <h3 className="text-xl">{item.name}</h3>
               <p>Price: ${item.price}</p>

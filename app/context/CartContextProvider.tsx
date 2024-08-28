@@ -1,14 +1,6 @@
 "use client";
 import React, { createContext, useContext, useState, ReactNode, useEffect } from 'react';
-
-
-interface CartItem {
-  id: number;
-  name: string;
-  price: number;
-  quantity: number;
-}
-
+import { CartItem } from '../types/product'; // Import CartItem type
 
 interface CartContextProps {
   cartItems: CartItem[];
@@ -18,19 +10,15 @@ interface CartContextProps {
   clearCart: () => void;
 }
 
-
 export const CartContext = createContext<CartContextProps | undefined>(undefined);
-
 
 export const CartProvider = ({ children }: { children: ReactNode }) => {
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
 
-  
   useEffect(() => {
     localStorage.setItem('cartItems', JSON.stringify(cartItems));
   }, [cartItems]);
 
-  
   useEffect(() => {
     const savedCartItems = localStorage.getItem('cartItems');
     if (savedCartItems) {
@@ -55,7 +43,6 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
   const updateCartItem = (id: number, quantity: number) => {
     setCartItems(prev => {
       if (quantity <= 0) {
-        
         return prev.filter(item => item.id !== id);
       }
       return prev.map(item => item.id === id ? { ...item, quantity } : item);
@@ -76,7 +63,6 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
     </CartContext.Provider>
   );
 };
-
 
 export const useCartContext = () => {
   const context = useContext(CartContext);

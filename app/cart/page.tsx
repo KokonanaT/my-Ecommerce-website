@@ -5,6 +5,7 @@ import { useCartContext } from '../context/CartContextProvider';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
+import { CartItem } from '../types/product'; 
 
 export default function CartPage() {
   const { cartItems, updateCartItem, removeCartItem } = useCartContext();
@@ -20,13 +21,12 @@ export default function CartPage() {
 
   const handleApplyPromo = () => {
     console.log(`Applying promo code: ${promoCode}`);
-    
+    // Promo code logic here
   };
 
   const handleOrder = () => {
-  
-    const orderId = '1'; 
-    router.push(`/order/${orderId}`); 
+    const orderId = '1'; // Replace with actual logic to generate/order ID
+    router.push(`/order/${orderId}`);
   };
 
   return (
@@ -36,33 +36,33 @@ export default function CartPage() {
         <p>Your cart is empty. <Link href="/">Start shopping!</Link></p>
       ) : (
         <div className="space-y-6">
-          {cartItems.map((item) => (
+          {cartItems.map((item: CartItem) => (
             <div key={item.id} className="flex items-center justify-between p-4 bg-white rounded-lg shadow">
               <Image
                 src={item.image}
                 alt={item.name}
-                width={64}  
-                height={64} 
+                width={64}
+                height={64}
                 className="object-cover rounded"
               />
               <div className="flex-1">
                 <h3 className="font-bold">{item.name}</h3>
                 <p className="text-gray-600">${item.price.toFixed(2)} x {item.quantity}</p>
                 <div className="flex space-x-4 mt-2">
-                  <button 
-                    onClick={() => updateCartItem(item.id, Math.max(1, item.quantity - 1))} 
+                  <button
+                    onClick={() => updateCartItem(item.id, Math.max(1, item.quantity - 1))}
                     className="bg-gray-300 text-gray-800 py-1 px-3 rounded"
                   >
                     -
                   </button>
-                  <button 
-                    onClick={() => updateCartItem(item.id, item.quantity + 1)} 
+                  <button
+                    onClick={() => updateCartItem(item.id, item.quantity + 1)}
                     className="bg-gray-300 text-gray-800 py-1 px-3 rounded"
                   >
                     +
                   </button>
-                  <button 
-                    onClick={() => removeCartItem(item.id)} 
+                  <button
+                    onClick={() => removeCartItem(item.id)}
                     className="bg-red-500 text-white py-1 px-3 rounded"
                   >
                     Remove
@@ -76,7 +76,7 @@ export default function CartPage() {
           </div>
           <div className="mt-6">
             <label className="block mb-2">Shipping Options:</label>
-            <select 
+            <select
               className="border p-2 rounded"
               value={shippingOption}
               onChange={(e) => setShippingOption(e.target.value)}
@@ -87,14 +87,14 @@ export default function CartPage() {
           </div>
           <div className="mt-6">
             <label className="block mb-2">Promo Code:</label>
-            <input 
-              type="text" 
+            <input
+              type="text"
               value={promoCode}
               onChange={(e) => setPromoCode(e.target.value)}
               className="border p-2 rounded w-full"
               placeholder="Enter promo code"
             />
-            <button 
+            <button
               onClick={handleApplyPromo}
               className="mt-2 bg-blue-500 text-white py-2 px-4 rounded"
             >
@@ -102,8 +102,8 @@ export default function CartPage() {
             </button>
           </div>
           <div className="mt-6 flex justify-end">
-            <button 
-              onClick={handleOrder} 
+            <button
+              onClick={handleOrder}
               className="bg-green-500 text-white py-2 px-4 rounded"
             >
               Proceed to Order
