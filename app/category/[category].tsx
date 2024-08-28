@@ -22,7 +22,7 @@ export default function CategoryPage() {
             {filteredProducts.map((product) => (
               <div key={product.id} className="bg-white p-6 rounded-lg shadow-md">
                 <img
-                  src={product.imageUrl}
+                  src="/images/clothing.jpg"
                   alt={product.name}
                   width={500}
                   height={300}
