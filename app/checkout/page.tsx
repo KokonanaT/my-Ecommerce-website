@@ -1,6 +1,6 @@
 "use client";
 
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 import { useAuth } from '../context/AuthContext';
 import { useState } from 'react';
 
@@ -10,12 +10,12 @@ export default function Checkout() {
   const [formData, setFormData] = useState({
     name: '',
     address: '',
-    email: user?.email || '', // Prefill email if the user is logged in
+    email: user?.email || '',
     paymentMethod: '',
   });
 
   if (!user) {
-    router.push('/login'); // Redirect to login if not authenticated
+    router.push('/login'); 
     return null; 
   }
 
@@ -25,10 +25,10 @@ export default function Checkout() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Simulate checkout logic (e.g., sending data to a backend)
+    
     console.log('Submitting checkout with', formData);
 
-    // After successful checkout, redirect to success page
+    
     router.push('/success');
   };
 

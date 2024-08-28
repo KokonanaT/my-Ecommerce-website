@@ -8,7 +8,7 @@ export default function Success() {
       <div className="bg-white p-8 rounded-lg shadow-lg text-center">
         <h1 className="text-3xl font-bold mb-6 text-green-600">Success!</h1>
         <p className="mb-6 text-gray-700">Your purchase has been completed successfully.</p>
-        <Link href="/">
+        <Link href="/" legacyBehavior>
           <a className="inline-block bg-blue-500 text-white py-3 px-6 rounded">
             Go Back to Home
           </a>

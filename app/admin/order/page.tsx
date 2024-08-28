@@ -1,5 +1,8 @@
+"use client";
+
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 
 interface Order {
   id: string;
@@ -10,9 +13,10 @@ interface Order {
 
 export default function ManageOrders() {
   const [orders, setOrders] = useState<Order[]>([]);
+  const router = useRouter();
 
   useEffect(() => {
-    // Simulate fetching orders from an API
+    
     const dummyOrders = [
       { id: '1', customer: 'Nanak', status: 'Processing', totalAmount: 250 },
       { id: '2', customer: 'Williams Clark', status: 'Shipped', totalAmount: 180 },
@@ -26,6 +30,11 @@ export default function ManageOrders() {
         order.id === id ? { ...order, status: newStatus } : order
       )
     );
+  };
+
+  const handleCheckout = () => {
+    
+    router.push('/checkout'); 
   };
 
   return (
@@ -61,7 +70,7 @@ export default function ManageOrders() {
               </td>
               <td className="py-2 px-4 border">
                 {/* Add the Link to the details page */}
-                <Link href={`/admin/orders/${order.id}`}>
+                <Link href={`/order/${order.id}`} legacyBehavior>
                   <a className="text-blue-500">View Details</a>
                 </Link>
               </td>
@@ -69,6 +78,14 @@ export default function ManageOrders() {
           ))}
         </tbody>
       </table>
+      <div className="flex justify-end mt-6">
+        <button
+          onClick={handleCheckout}
+          className="bg-blue-500 text-white py-2 px-4 rounded"
+        >
+          Checkout
+        </button>
+      </div>
     </div>
   );
 }

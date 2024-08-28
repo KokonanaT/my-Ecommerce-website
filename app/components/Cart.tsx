@@ -1,3 +1,4 @@
+"use client"
 import { useCartContext } from '../context/CartContextProvider';
 
 export default function Cart() {

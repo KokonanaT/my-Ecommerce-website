@@ -4,14 +4,14 @@ import { useState } from 'react';
 import ProductCard from '../components/ProductCard'; // Import ProductCard
 
 const dummyProducts = [
-  { id: 1, name: 'Laptop', category: 'Electronics', price: 1200, image: '/laptop.jpg' },
-  { id: 2, name: 'T-shirt', category: 'Clothing', price: 25, image: '/clothings3.webp' },
-  { id: 3, name: 'Headphones', category: 'Electronics', price: 100, image: '/electronics.jpg' },
-  { id: 4, name: 'Shoes', category: 'Clothing', price: 80, image: '/heels.jpg' },
-  { id: 5, name: 'Coffee Maker', category: 'Home Appliances', price: 150, image: '/cofee-maker.jpg' },
-  { id: 6, name: 'Smartphone', category: 'Electronics', price: 800, image: '/smartphone.jpeg' },
-  { id: 7, name: 'Blender', category: 'Home Appliances', price: 60, image: '/blender.jpg' },
-  { id: 8, name: 'sneakers', category: 'Clothing', price: 45, image: '/sneakers.jpg' },
+  { id: 1, name: 'Laptop', category: 'Electronics', price: 1200, image: '/images/laptop.jpg' },
+  { id: 2, name: 'T-shirt', category: 'Clothing', price: 25, image: '/images/clothings3.webp' },
+  { id: 3, name: 'Headphones', category: 'Electronics', price: 100, image: '/images/electronics.jpg' },
+  { id: 4, name: 'Shoes', category: 'Clothing', price: 80, image: '/images/heels.jpg' },
+  { id: 5, name: 'Coffee Maker', category: 'Home Appliances', price: 150, image: '/images/cofee-maker.jpg' },
+  { id: 6, name: 'Smartphone', category: 'Electronics', price: 800, image: '/images/smartphone.jpeg' },
+  { id: 7, name: 'Blender', category: 'Home Appliances', price: 60, image: '/images/blender.jpg' },
+  { id: 8, name: 'sneakers', category: 'Clothing', price: 45, image: '/images/sneakers.jpg' },
 ];
 
 export default function SearchPage() {

@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import Link from 'next/link'; // Use Link instead of useRouter
+import Link from 'next/link'; 
 import { useCartContext } from '../context/CartContextProvider';
 
 interface ProductCardProps {
@@ -24,7 +24,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ id, image, name, price }) => 
       <h3 className="text-xl font-bold mt-4">{name}</h3>
       <p className="text-gray-600">${price}</p>
 
-      <Link href={`/product/${id}`} passHref>
+      <Link href={`/product/${id}`} passHref legacyBehavior>
         <a className="mt-4 inline-block bg-blue-500 text-white py-2 px-4 rounded">
           View Details
         </a>

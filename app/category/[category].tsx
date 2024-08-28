@@ -1,5 +1,5 @@
-
-import { useRouter } from 'next/router';
+"use client"
+import { useRouter } from 'next/navigation';
 import { dummyProducts } from '../data/dummyData';
 import Link from 'next/link';
 

@@ -3,12 +3,14 @@
 import React, { useState } from 'react';
 import { useCartContext } from '../context/CartContextProvider';
 import Link from 'next/link';
-import Image from 'next/image'; // Use Image component from Next.js
+import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 
 export default function CartPage() {
   const { cartItems, updateCartItem, removeCartItem } = useCartContext();
   const [promoCode, setPromoCode] = useState('');
   const [shippingOption, setShippingOption] = useState('standard');
+  const router = useRouter();
 
   const calculateTotal = () => {
     const itemsTotal = cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
@@ -18,7 +20,13 @@ export default function CartPage() {
 
   const handleApplyPromo = () => {
     console.log(`Applying promo code: ${promoCode}`);
-    // Implement promo code logic here
+    
+  };
+
+  const handleOrder = () => {
+  
+    const orderId = '1'; 
+    router.push(`/order/${orderId}`); 
   };
 
   return (
@@ -33,8 +41,8 @@ export default function CartPage() {
               <Image
                 src={item.image}
                 alt={item.name}
-                width={64}  // Specify width for Image component
-                height={64} // Specify height for Image component
+                width={64}  
+                height={64} 
                 className="object-cover rounded"
               />
               <div className="flex-1">
@@ -91,6 +99,14 @@ export default function CartPage() {
               className="mt-2 bg-blue-500 text-white py-2 px-4 rounded"
             >
               Apply Promo
+            </button>
+          </div>
+          <div className="mt-6 flex justify-end">
+            <button 
+              onClick={handleOrder} 
+              className="bg-green-500 text-white py-2 px-4 rounded"
+            >
+              Proceed to Order
             </button>
           </div>
         </div>

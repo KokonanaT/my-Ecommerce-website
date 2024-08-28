@@ -1,26 +1,26 @@
 import { useState } from 'react';
-import { useRouter } from 'next/router';
-import Cookies from 'js-cookie'; // To handle cookies
+import { useRouter } from 'next/navigation';
+import Cookies from 'js-cookie'; 
 
 export default function AdminLogin() {
   const [formData, setFormData] = useState({ username: '', password: '' });
   const router = useRouter();
 
-  // Handle form input changes
+  /
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  // Handle form submission
+  
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     
-    // Simulate authentication
+    
     if (formData.username === 'admin' && formData.password === 'password') {
-      // Set a token in the cookies (using js-cookie)
+      
       Cookies.set('admin-token', 'valid-token', { path: '/' });
       
-      // Redirect to the admin dashboard
+      
       router.push('/admin');
     } else {
       alert('Invalid credentials');
