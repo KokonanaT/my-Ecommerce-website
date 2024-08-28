@@ -1,8 +1,7 @@
-
 const testimonials = [
-  { name: "NanaK", text: "This is the best e-commerce site I've ever used!" },
-  { name: "Williams Clark", text: "Amazing products and great customer service!" },
-  { name: "Joshua Drae", text: "I found everything I needed in one place!" },
+  { name: "NanaK", text: "This is the best e-commerce site I have ever used" },
+  { name: "Williams Clark", text: "Amazing products and great customer service" },
+  { name: "Joshua Drake", text: "I found everything I needed in one place" },
 ];
 
 const Testimonials = () => (
@@ -11,7 +10,7 @@ const Testimonials = () => (
     <div className="max-w-4xl mx-auto">
       {testimonials.map((testimonial, index) => (
         <div key={index} className="text-center mb-8">
-          <p className="text-xl italic">"{testimonial.text}"</p>
+          <p className="text-xl italic">&ldquo;{testimonial.text}&rdquo;</p>
           <p className="mt-4 font-semibold">{testimonial.name}</p>
         </div>
       ))}

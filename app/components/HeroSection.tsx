@@ -13,7 +13,7 @@ const HeroSection = () => (
     </div>
     <div className="relative z-10">
       <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 blinking-color-text">
-        DEKO'S PLACE
+        DECO STORES
       </h1>
       <p className="text-base sm:text-lg md:text-xl mb-6">
         Shop the best products at unbeatable prices!

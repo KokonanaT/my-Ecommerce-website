@@ -24,6 +24,8 @@ export default function CategoryPage() {
                 <img
                   src={product.imageUrl}
                   alt={product.name}
+                  width={500}
+                  height={300}
                   className="w-full h-48 object-cover rounded-lg mb-4"
                 />
                 <h2 className="text-xl font-semibold">{product.name}</h2>

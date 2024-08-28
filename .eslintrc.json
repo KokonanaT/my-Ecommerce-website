@@ -1,6 +1,7 @@
+/* eslint-disable react/no-unescaped-entities */
 {
   "extends": ["next", "prettier"],
   "rules": {
-    "react/react-in-jsx-scope": "off"
+    "react/no-unescaped-entities": "off"
   }
 }

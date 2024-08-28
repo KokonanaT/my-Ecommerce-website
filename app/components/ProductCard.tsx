@@ -1,4 +1,5 @@
-"use client"
+"use client";
+
 import Image from 'next/image';
 import Link from 'next/link'; 
 import { useCartContext } from '../context/CartContextProvider';
@@ -32,7 +33,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ id, image, name, price }) => 
       </Link>
 
       <button
-        onClick={() => addToCart({ id, name, price, quantity: 1 })}
+        onClick={() => addToCart({ id, name, price, quantity: 1, image })} // Include image here
         className="mt-2 inline-block bg-green-500 text-white py-2 px-4 rounded"
       >
         Add to Cart
