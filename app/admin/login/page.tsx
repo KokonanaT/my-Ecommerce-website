@@ -6,7 +6,7 @@ export default function AdminLogin() {
   const [formData, setFormData] = useState({ username: '', password: '' });
   const router = useRouter();
 
-  /
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
