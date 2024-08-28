@@ -1,7 +1,10 @@
-import { useParams } from 'next/navigation';
+"use client"
+import { useRouter } from 'next/navigation';
+import { useParams } from 'next/navigation'; 
 
 export default function OrderDetails() {
-  const { id } = useParams(); // Correctly retrieve route parameters
+  const router = useRouter(); 
+  const { id } = useParams(); 
 
   const order = {
     id: id || 'N/A',

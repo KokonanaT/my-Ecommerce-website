@@ -1,6 +1,6 @@
-// app/admin/layout.tsx
+
 import Link from 'next/link';
-import { ProductAdminProvider } from '../context/ProductAdminContext'; // Make sure the path to the context is correct
+import { ProductAdminProvider } from '../context/ProductAdminContext'; 
 
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
   return (

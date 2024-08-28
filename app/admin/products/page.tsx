@@ -1,18 +1,21 @@
-"use client"
+"use client";
 import { useState } from 'react';
+import { Product } from '../../types/product';
 import { useProductAdmin } from '../../context/ProductAdminContext';
 
 export default function AdminProductsPage() {
   const { products, addProduct, updateProduct, deleteProduct } = useProductAdmin();
-  const [NewProduct, setNewProduct] = useState({ name: '', price: 0, image: '' });
+  const [newProduct, setNewProduct] = useState<Omit<Product, 'id'>>({ name: '', price: 0, image: '' });
 
   const handleAddProduct = () => {
-    addProduct(NewProduct);
+    
+    const id = Date.now();
+    addProduct({ id, ...newProduct }); 
     setNewProduct({ name: '', price: 0, image: '' });
   };
 
   return (
-    <div>8
+    <div>
       <h1 className="text-2xl font-bold mb-8">Manage Products</h1>
       
       <div className="mb-6">
@@ -20,22 +23,22 @@ export default function AdminProductsPage() {
         <input
           type="text"
           placeholder="Product Name"
-          value={NewProduct.name}
-          onChange={(e) => setNewProduct({ ...NewProduct, name: e.target.value })}
+          value={newProduct.name}
+          onChange={(e) => setNewProduct({ ...newProduct, name: e.target.value })}
           className="border p-2 mr-4"
         />
         <input
           type="number"
           placeholder="Product Price"
-          value={NewProduct.price}
-          onChange={(e) => setNewProduct({ ...NewProduct, price: parseFloat(e.target.value) })}
+          value={newProduct.price}
+          onChange={(e) => setNewProduct({ ...newProduct, price: parseFloat(e.target.value) })}
           className="border p-2 mr-4"
         />
         <input
           type="text"
           placeholder="Product Image URL"
-          value={NewProduct.image}
-          onChange={(e) => setNewProduct({ ...NewProduct, image: e.target.value })}
+          value={newProduct.image}
+          onChange={(e) => setNewProduct({ ...newProduct, image: e.target.value })}
           className="border p-2 mr-4"
         />
         <button onClick={handleAddProduct} className="bg-blue-500 text-white py-2 px-4">Add Product</button>
