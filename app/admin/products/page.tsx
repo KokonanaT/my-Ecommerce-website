@@ -1,4 +1,4 @@
-// app/admin/products/page.tsx
+"use client"
 import { useState } from 'react';
 import { useProductAdmin } from '../../context/ProductAdminContext';
 
@@ -12,7 +12,7 @@ export default function AdminProductsPage() {
   };
 
   return (
-    <div>
+    <div>8
       <h1 className="text-2xl font-bold mb-8">Manage Products</h1>
       
       <div className="mb-6">
